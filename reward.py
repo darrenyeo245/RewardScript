@@ -1,12 +1,16 @@
+import os
 import threading
 import numpy as np
 from pythonosc import osc_server, udp_client
 from pythonosc.dispatcher import Dispatcher
+from dotenv import load_dotenv
+
+load_dotenv()
 
 IN_IP = "0.0.0.0"
-IN_PORT = 9006
-BROADCAST_IP = "127.0.0.1"
-BROADCAST_PORT = 8000
+IN_PORT = int(os.getenv("IN_PORT", 9001))
+BROADCAST_IP = os.getenv("BROADCAST_IP", "255.255.255.255")
+BROADCAST_PORT = int(os.getenv("BROADCAST_PORT", 9001))
 
 OUT_ADDRESS = "/adm/obj/101/xyz"
 REWARD_ADDRESS = "/reward"
