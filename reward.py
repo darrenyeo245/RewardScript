@@ -12,7 +12,7 @@ IN_PORT = int(os.getenv("IN_PORT", 9001))
 BROADCAST_IP = os.getenv("BROADCAST_IP", "255.255.255.255")
 BROADCAST_PORT = int(os.getenv("BROADCAST_PORT", 9001))
 
-OUT_ADDRESS = "/adm/obj/101/xyz"
+OUT_ADDRESS = "/adm/obj/16/xyz"
 REWARD_ADDRESS = "/reward"
 IN_ADDRESS = "/adm/obj/1/xyz"
 RESET_ADDRESS = ("/episode/end", "/episode/reset_manual")
@@ -31,10 +31,11 @@ pending_output = None
 stopped = False
 new_input_since_last_reward = False
 
+# Gibt dem simulierten Output einen zufälligen Wert in einem beschränkten Scale
 RNG = np.random.default_rng()
 STEP_SCALE = 0.03
 DRIFT_SCALE = 0.02
-Z_BIAS = 0.0
+Z-AXIS = 0.0
 
 
 def clamp_xyz(values):
